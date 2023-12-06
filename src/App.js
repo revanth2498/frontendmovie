@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import SearchFilter from './SearchFilter';
+import MovieDetailsPage from './MovieDetailsPage'; 
+import Signup from './Signup';
+import Login from './Login';
+import Fantheories from './Fantheories';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/signup" element={<Signup/>}/>
+        <Route path="/search" element={<SearchFilter />} />
+        <Route path="/movie-details/:id" element={<MovieDetailsPage/>} />
+        <Route path="/fantheories/:id" element={<Fantheories/>} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
