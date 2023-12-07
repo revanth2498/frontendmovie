@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation,  useParams} from "react-router-dom";
+import { useLocation,  useNavigate,  useParams,Link} from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -15,6 +15,7 @@ const MovieDetails = () => {
   const location = useLocation();
   const [user, setUser] = useState("");
   const params = useParams();
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     console.log("testing");
@@ -57,7 +58,9 @@ const MovieDetails = () => {
 
 
     const handleButtonClick = () => {
-        window.location.href = '/search';
+      console.log(window.location.href)
+        //window.location.href = '/search';
+        navigate('/search')
     };
 
   const handleEditReview = (index) => {

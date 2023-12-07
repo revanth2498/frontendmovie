@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation,  useParams } from "react-router-dom";
+import { useLocation,  useNavigate,  useParams } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -21,6 +21,8 @@ const Fantheories = () => {
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
   const [isWriteDialogOpen, setIsWriteDialogOpen] = useState(false);
   const [movie, setMovie] = useState({});
+  const navigate = useNavigate(); 
+
 
   useEffect(() => {
     const movieid = params.id;
@@ -51,6 +53,7 @@ const Fantheories = () => {
 
   const handleButtonClick = () => {
     window.location.href = '/search';
+    navigate('/search')
 };
 
   const handleDeleteTheory = (index) => {

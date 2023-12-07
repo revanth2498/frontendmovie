@@ -65,7 +65,7 @@
 // export default Login;
 
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,NavLink } from "react-router-dom";
 import { Button, TextField, Typography, Container, Link } from "@mui/material";
 import movieimg from "./loginBg.jpg";
 
@@ -160,9 +160,15 @@ const Login = () => {
             Login
           </Button>
         </form>
-        <Link href="/signup" variant="body2">
+        
+        {/* <Link href="/signup" variant="body2">
           Create an account
-        </Link>
+        </Link> */}
+        <NavLink to="/signup" style={{ textDecoration: 'none' }}>
+          <Typography variant="body2" style={{ marginTop: '10px' }}>
+            Create an account
+          </Typography>
+        </NavLink>
       </Container>
     </div>
   );
