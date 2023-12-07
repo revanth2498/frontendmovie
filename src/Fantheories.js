@@ -52,7 +52,7 @@ const Fantheories = () => {
   };
 
   const handleButtonClick = () => {
-    window.location.href = '/search';
+    //window.location.href = '/search';
     navigate('/search')
 };
 

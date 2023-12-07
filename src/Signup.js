@@ -116,7 +116,7 @@
 
 // export default Signup;
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Button, TextField, Typography, Container, Link } from "@mui/material";
 import movieimg from "./loginBg.jpg";
 const Signup = () => {
@@ -223,9 +223,14 @@ const Signup = () => {
           <Button variant="contained" color="primary" onClick={handleSignup}>
             Signup
           </Button>
-          <Link href="/login" variant="body2" style={{ marginLeft: "10px" }}>
+          <NavLink to="/login" style={{ textDecoration: 'none' }}>
+          <Typography variant="body2" style={{ marginTop: '10px' }}>
+          Already have an account? Login
+          </Typography>
+        </NavLink>
+          {/* <Link href="/login" variant="body2" style={{ marginLeft: "10px" }}>
             Already have an account? Login
-          </Link>
+          </Link> */}
         </form>
       </Container>
     </div>

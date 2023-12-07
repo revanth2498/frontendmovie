@@ -51,15 +51,15 @@ const SearchFilter = () => {
     navigate(url, { state: { movieDetails: movie } });
   };
 
-  const handleSearch = (event) => {
-    const searchTerm = event.target.value;
-    setSearchTerm(searchTerm);
+  // const handleSearch = (event) => {
+  //   const searchTerm = event.target.value;
+  //   setSearchTerm(searchTerm);
 
-    const filtered = items.filter((item) =>
-      item.Title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredItems(filtered);
-  };
+  //   const filtered = items.filter((item) =>
+  //     item.Title.toLowerCase().includes(searchTerm.toLowerCase())
+  //   );
+  //   setFilteredItems(filtered);
+  // };
 
   const handleSortChange = (event) => {
     setSortMethod(event.target.value);
@@ -225,6 +225,27 @@ const SearchFilter = () => {
     }
   };
 
+  // useEffect(() => {
+  //   const uservalue = sessionStorage.getItem("UserName");
+  //   console.log(uservalue);
+  //   setUser(uservalue);
+  //   fetch(`https://backendformoviereview.onrender.com/Movie/getMovies?page=${currentPage}&limit=${itemsPerPage}`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log(data.requests);
+  //       setItems(data.requests);
+  //       setFilteredItems(data.requests);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, [currentPage]);
+
+  // useEffect(() => {
+  //   const sortedMovies = sortMovies(filteredItems);
+  //   setFilteredItems(sortedMovies);
+  // }, [sortMethod, filteredItems]);
+  
   useEffect(() => {
     const uservalue = sessionStorage.getItem("UserName");
     console.log(uservalue);
@@ -242,9 +263,23 @@ const SearchFilter = () => {
   }, [currentPage]);
 
   useEffect(() => {
-    const sortedMovies = sortMovies(filteredItems);
+    const sortedMovies = sortMovies(items);
     setFilteredItems(sortedMovies);
-  }, [sortMethod, filteredItems]); 
+  }, [sortMethod, items]);
+
+  const handleSearch = (event) => {
+    const searchTerm = event.target.value;
+    setSearchTerm(searchTerm);
+
+    if (searchTerm === "") {
+      setFilteredItems(items); 
+    } else {
+      const filtered = items.filter((item) =>
+        item.Title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredItems(filtered); 
+    }
+  };
 
   return (
     <div
