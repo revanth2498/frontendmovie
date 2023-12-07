@@ -22,7 +22,7 @@ const MovieDetails = () => {
     console.log(movieid);
     const movie = location.state.movieDetails;
     setMovie(movie);
-    fetch(`http://localhost:8000/Review/movieReviews/${movieid}`)
+    fetch(`https://backendformoviereview.onrender.com/Review/movieReviews/${movieid}`)
       .then((response) => {
         return response.json();
       })
@@ -74,7 +74,7 @@ const MovieDetails = () => {
   const handleDeleteReview = (index) => {
     if (reviews[index].username === user) {
       const reviewIdToDelete = reviews[index]._id; 
-      fetch(`http://localhost:8000/Review/deleteReview/${reviewIdToDelete}`, {
+      fetch(`https://backendformoviereview.onrender.com/Review/deleteReview/${reviewIdToDelete}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -114,7 +114,7 @@ const MovieDetails = () => {
         rating: rating,
       };
 
-      fetch(`http://localhost:8000/Review/editReview/${reviewIdToEdit}`, {
+      fetch(`https://backendformoviereview.onrender.com/Review/editReview/${reviewIdToEdit}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -154,7 +154,7 @@ const MovieDetails = () => {
     const newReview = { username: user, review: writeText, rating: rating };
     const movieid = params.id;
     console.log(movieid);
-    fetch(`http://localhost:8000/Review/addReview/${movieid}`, {
+    fetch(`https://backendformoviereview.onrender.com/Review/addReview/${movieid}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -123,14 +123,14 @@ const SearchFilter = () => {
   const handleDeleteMovie = async (movie) => {
     if (user === 'adminUser') {
       try {
-        const response = await fetch(`http://localhost:8000/Movie/deleteMovie/${movie._id}`, {
+        const response = await fetch(`https://backendformoviereview.onrender.com/Movie/deleteMovie/${movie._id}`, {
           method: "DELETE"
         });
         const data = await response.json();
         console.log(data)
         if (data.message === "Movie Deleted") {
           const updatedMoviesResponse = await fetch(
-            "http://localhost:8000/Movie/getMovies"
+            "https://backendformoviereview.onrender.com/Movie/getMovies"
           );
           const updatedMoviesData = await updatedMoviesResponse.json();
           setItems(updatedMoviesData.requests);
@@ -165,7 +165,7 @@ const SearchFilter = () => {
         Country: country,
       };
       console.log(newMovieData)
-      const response = await fetch("http://localhost:8000/Movie/addMovie", {
+      const response = await fetch("https://backendformoviereview.onrender.com/Movie/addMovie", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -177,7 +177,7 @@ const SearchFilter = () => {
 
       if (data.message === "Movie created") {
         const updatedMoviesResponse = await fetch(
-          "http://localhost:8000/Movie/getMovies"
+          "https://backendformoviereview.onrender.com/Movie/getMovies"
         );
         const updatedMoviesData = await updatedMoviesResponse.json();
         setItems(updatedMoviesData.requests);
@@ -229,7 +229,7 @@ const SearchFilter = () => {
     const uservalue = sessionStorage.getItem("UserName");
     console.log(uservalue);
     setUser(uservalue);
-    fetch(`http://localhost:8000/Movie/getMovies?page=${currentPage}&limit=${itemsPerPage}`)
+    fetch(`https://backendformoviereview.onrender.com/Movie/getMovies?page=${currentPage}&limit=${itemsPerPage}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data.requests);

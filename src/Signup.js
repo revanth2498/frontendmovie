@@ -59,7 +59,7 @@
 //         email,
 //       };
 
-//       const response = await fetch("http://localhost:8000/User/createUser", {
+//       const response = await fetch("https://backendformoviereview.onrender.com/User/createUser", {
 //         method: "POST",
 //         headers: {
 //           "Content-Type": "application/json",
@@ -135,7 +135,7 @@ const Signup = () => {
         email,
       };
 
-      const response = await fetch("http://localhost:8000/User/createUser", {
+      const response = await fetch("https://backendformoviereview.onrender.com/User/createUser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

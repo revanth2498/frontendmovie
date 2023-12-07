@@ -26,7 +26,7 @@ const Fantheories = () => {
     const movieid = params.id;
     const movie = location.state.movieDetails;
     setMovie(movie);
-    fetch(`http://localhost:8000/FanTheory/movieTheories/${movieid}`)
+    fetch(`https://backendformoviereview.onrender.com/FanTheory/movieTheories/${movieid}`)
       .then((response) => response.json())
       .then((data) => {
         setTheories(data);
@@ -56,7 +56,7 @@ const Fantheories = () => {
   const handleDeleteTheory = (index) => {
     if (theories[index].username === user) {
       const theoryId = theories[index]._id;
-      fetch(`http://localhost:8000/FanTheory/deleteTheory/${theoryId}`, {
+      fetch(`https://backendformoviereview.onrender.com/FanTheory/deleteTheory/${theoryId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -84,7 +84,7 @@ const Fantheories = () => {
 
   const handleEditSaveTheory = () => {
     const theoryId = theories[editIndex]._id;
-    fetch(`http://localhost:8000/FanTheory/editTheory/${theoryId}`, {
+    fetch(`https://backendformoviereview.onrender.com/FanTheory/editTheory/${theoryId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -98,7 +98,7 @@ const Fantheories = () => {
         return response.json();
       })
       .then((data) => {
-        fetch(`http://localhost:8000/FanTheory/movieTheories/${params.id}`)
+        fetch(`https://backendformoviereview.onrender.com/FanTheory/movieTheories/${params.id}`)
           .then((response) => response.json())
           .then((updatedTheories) => {
             setTheories(updatedTheories);
@@ -118,7 +118,7 @@ const Fantheories = () => {
     const newTheory = { username: user, fan_theory: writeText };
     const movieid = params.id;
     console.log(movieid);
-    fetch(`http://localhost:8000/FanTheory/addTheory/${movieid}`, {
+    fetch(`https://backendformoviereview.onrender.com/FanTheory/addTheory/${movieid}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

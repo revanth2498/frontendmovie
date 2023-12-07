@@ -15,7 +15,7 @@
 //         password,
 //       };
 //       const response = await fetch(
-//         "http://localhost:8000/User/loginValidation",
+//         "https://backendformoviereview.onrender.com/User/loginValidation",
 //         {
 //           method: "POST",
 //           headers: {
@@ -82,7 +82,7 @@ const Login = () => {
         password,
       };
       const response = await fetch(
-        "http://localhost:8000/User/loginValidation",
+        "https://backendformoviereview.onrender.com/User/loginValidation",
         {
           method: "POST",
           headers: {
