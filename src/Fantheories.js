@@ -9,6 +9,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import TextField from "@mui/material/TextField";
 import movieimg from "./searchBg.jpeg";
+import LogoutButton from "./LogoutButton";
 
 const Fantheories = () => {
   const location = useLocation();
@@ -153,6 +154,8 @@ const Fantheories = () => {
         backgroundAttachment: "fixed",
       }}
     >
+            <LogoutButton/>
+
       {theories.map((theory, index) => (
         <Card key={index} style={{ marginBottom: "20px" }}>
           <CardContent>

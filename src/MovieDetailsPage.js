@@ -10,6 +10,7 @@ import DialogContent from "@mui/material/DialogContent";
 import TextField from "@mui/material/TextField";
 import Rating from "@mui/material/Rating";
 import movieimg from "./searchBg.jpeg";
+import LogoutButton from "./LogoutButton";
 
 const MovieDetails = () => {
   const location = useLocation();
@@ -59,7 +60,6 @@ const MovieDetails = () => {
 
     const handleButtonClick = () => {
       console.log(window.location.href)
-        //window.location.href = '/search';
         navigate('/search')
     };
 
@@ -205,6 +205,8 @@ const MovieDetails = () => {
         backgroundAttachment: "fixed",
       }}
     >
+            <LogoutButton/>
+
       <Typography variant="h4" gutterBottom>
         Movie:{movie.Title}
       </Typography>

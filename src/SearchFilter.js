@@ -11,6 +11,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import movieimg from "./searchBg.jpeg";
+import LogoutButton from "./LogoutButton";
 
 const SearchFilter = () => {
   const [user, setUser] = useState("");
@@ -50,16 +51,6 @@ const SearchFilter = () => {
     const url = "/fantheories/" + movie._id;
     navigate(url, { state: { movieDetails: movie } });
   };
-
-  // const handleSearch = (event) => {
-  //   const searchTerm = event.target.value;
-  //   setSearchTerm(searchTerm);
-
-  //   const filtered = items.filter((item) =>
-  //     item.Title.toLowerCase().includes(searchTerm.toLowerCase())
-  //   );
-  //   setFilteredItems(filtered);
-  // };
 
   const handleSortChange = (event) => {
     setSortMethod(event.target.value);
@@ -225,26 +216,7 @@ const SearchFilter = () => {
     }
   };
 
-  // useEffect(() => {
-  //   const uservalue = sessionStorage.getItem("UserName");
-  //   console.log(uservalue);
-  //   setUser(uservalue);
-  //   fetch(`https://backendformoviereview.onrender.com/Movie/getMovies?page=${currentPage}&limit=${itemsPerPage}`)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data.requests);
-  //       setItems(data.requests);
-  //       setFilteredItems(data.requests);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, [currentPage]);
 
-  // useEffect(() => {
-  //   const sortedMovies = sortMovies(filteredItems);
-  //   setFilteredItems(sortedMovies);
-  // }, [sortMethod, filteredItems]);
   
   useEffect(() => {
     const uservalue = sessionStorage.getItem("UserName");
@@ -297,6 +269,7 @@ const SearchFilter = () => {
         backgroundAttachment: "fixed",
       }}
     >
+      <LogoutButton/>
       <div
         style={{ display: "flex", alignItems: "center", marginBottom: "10px" }}
       >
